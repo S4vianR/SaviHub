@@ -1,10 +1,31 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Header from "@/components/Header";
+import Layout from "@/layouts/Layout.astro";
+
+import { Image } from "astro:assets";
+import me from "@/assets/me.webp";
 ---
 
-<Layout title='Rubr | Home' className='h-screen w-screen bg-slate-950 text-white'>
-	<div class="h-full flex flex-col justify-center items-center gap-2">
-		<span class="text-2xl font-bold">Site under construction</span>
-		<img src="/giphy.gif" alt="Gif" width="1920" height="1080" class="w-72 rounded-lg shadow-xl shadow-amber-800">
-	</div>
+<Layout
+  title="Rubr | Projects"
+  className="h-screen w-screen bg-slate-950 text-white"
+>
+  <Header client:idle />
+  <main>
+    <Image
+      src={me}
+      alt={"An image of me"}
+      width={1920}
+      height={1080}
+      class:list={"w-72 rounded-lg"}
+    />
+    <span class="font-bold text-2xl bg-linear-to-l from-blue-500 to-green-500 hover:bg-linear-to-r hover:from-blue-500 hover:to-amber-500">
+      Hi, I'm Reuben
+    </span>
+    <p>
+      I’m a passionate Dev willing to learn new things, open to using Linux 24/7
+      and fan of using FOSS (Free and Open Source Software), still studying the
+      career but one year away from finishing
+    </p>
+  </main>
 </Layout>
